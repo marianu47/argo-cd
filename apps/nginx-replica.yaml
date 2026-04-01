@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx
+  name: nginx-replica
   namespace: argo-cd
 spec:
   project: default
   source:
     repoURL: https://github.com/marianu47/argo-cd.git
-    path: manifests/nginx
+    path: manifests/nginx-replica
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx
+    namespace: nginx-replica
   syncPolicy:
     automated:
       selfHeal: true
